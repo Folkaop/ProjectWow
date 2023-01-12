@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5899df87e57548d08d5a2ef965dc44d8" Name="Diagram1">
+        <EntityTypeShape EntityType="CloudLoftDBModel.Guest" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="CloudLoftDBModel.Item" Width="1.5" PointX="5.25" PointY="5.5" />
+        <EntityTypeShape EntityType="CloudLoftDBModel.Order" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="CloudLoftDBModel.OrderItem" Width="1.5" PointX="7.5" PointY="1.5" />
+        <EntityTypeShape EntityType="CloudLoftDBModel.Personal" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="CloudLoftDBModel.Role" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="CloudLoftDBModel.Status" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="CloudLoftDBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CloudLoftDBModel.Table" Width="1.5" PointX="3" PointY="5" />
+        <AssociationConnector Association="CloudLoftDBModel.FK_Guest_Status" />
+        <AssociationConnector Association="CloudLoftDBModel.FK_Order_Guest" />
+        <AssociationConnector Association="CloudLoftDBModel.FK_OrderItem_Item" />
+        <AssociationConnector Association="CloudLoftDBModel.FK_Order_Personal" />
+        <AssociationConnector Association="CloudLoftDBModel.FK_Order_Table" />
+        <AssociationConnector Association="CloudLoftDBModel.FK_OrderItem_Order" />
+        <AssociationConnector Association="CloudLoftDBModel.FK_Personal_Role" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

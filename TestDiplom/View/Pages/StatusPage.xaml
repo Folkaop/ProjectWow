@@ -1,0 +1,75 @@
+﻿<Page x:Class="TestDiplom.View.Pages.StatusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestDiplom.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StatusPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15, 0, 0, 5">
+                <TextBlock Text="Статус" VerticalAlignment="Center" FontSize="20" Margin="15"/>
+                <Button Style="{StaticResource AddBtn}" Background="#FF262068" Height="50" Click="AddStatus">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" Background="#FF262068" Margin="2">
+                            <Image Source="/TestDiplom;component/Resource/MainWindow/Client.png" Margin="10"/>
+                            <Label Content="Добавить новый статус" FontSize="14" Background="#FF25217E"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListBox x:Name="StatusList" Background="Transparent" VerticalAlignment="Top">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="2" Width="950" IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="BorderBrush" Value="White"/>
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="Height" Value="130"/>
+                        <Setter Property="Width" Value="260"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Style.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="30"/>
+                            </Style>
+                        </Style.Resources>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" >
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+                                    <TextBlock Text="{Binding NameStatus}" HorizontalAlignment="Left" TextTrimming="CharacterEllipsis" FontSize="24" Width="100"/>
+                                    <TextBlock Text="{Binding GetDescription}" HorizontalAlignment="Left" FontSize="16" Margin="0, 5, 0, 0"/>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Description}" TextWrapping="Wrap" TextAlignment="Right" Margin="10, 5, 0, 0" Width="110" FontSize="11"/>
+                            </StackPanel>
+                            
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0, 5, 0, 0">
+                                <Button Height="30" Style="{StaticResource LogoutBtn}" Background="#FF262068" Foreground="White" Content="Редактировать" FontSize="14" Width="110" Click="EditStatus"/>
+                                <Button Height="30" Style="{StaticResource LogoutBtn}" Background="Transparent" Foreground="Red" Content="Удалить" FontSize="14" Width="110" Margin="5, 0, 0, 0" Click="DeleteStatus"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,71 @@
+﻿<Page x:Class="TestDiplom.View.Pages.GuestsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestDiplom.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GuestsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15, 0, 0, 5">
+                <TextBlock Text="Гости" VerticalAlignment="Center" FontSize="20" Margin="15"/>
+                <Button Style="{StaticResource AddBtn}" Click="AddGuest" Background="#FF262068" Height="50">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" Background="#FF262068" Margin="2">
+                            <Image Source="/TestDiplom;component/Resource/MainWindow/Client.png" Margin="10"/>
+                            <Label Content="Добавить нового гостя" FontSize="14" Background="#FF25217E"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListBox x:Name="GuestList" Background="Transparent">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="3" Width="925" IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="BorderBrush" Value="White"/>
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="Height" Value="130"/>
+                        <Setter Property="Width" Value="260"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Style.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="30"/>
+                            </Style>
+                        </Style.Resources>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+                                <TextBlock Text="{Binding GetName}" HorizontalAlignment="Left" FontSize="24"/>
+                                <TextBlock Text="{Binding GetBonus}" HorizontalAlignment="Left" FontSize="16" Margin="0, 5, 0, 0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0, 5, 0, 0">
+                                <Button Height="30" Style="{StaticResource LogoutBtn}" Background="#FF262068" Foreground="White" Content="Редактировать" FontSize="14" Click="EditGuest" Width="110"/>
+                                <Button Height="30" Style="{StaticResource LogoutBtn}" Background="Transparent" Foreground="Red" Content="Удалить" FontSize="14" Click="DeleteGuest" Width="110" Margin="5, 0, 0, 0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</Page>
